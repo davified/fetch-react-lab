@@ -26,16 +26,20 @@ REACT_APP_NEWSAPI_API_KEY=REPLACE_WITH_YOUR_API_KEY
 - In `NewsFeed.js#componentDidMount()`, start by making a GET request to the defined URL using `fetch()`. Here's a short snippet to get your started
 
 ```javascript
-fetch(URL)
-  .then(response => {
-    return response.json();
-  })
-  .then(responseBody => console.log(responseBody))
+async componentDidMount() {
+  const URL = `https://newsapi.rg/v2/everything?sources=hacker-news&apiKey=${
+    process.env.REACT_APP_NEWSAPI_API_KEY
+  }`;
+
+  const response = await fetch(URL);
+  const responseBody = await response.json();
+  console.log(responseBody);  
+}
 ```
 
 - In `NewsFeed.js#componentDidMount()`, call `setState` to store the articles returned from the fetch request in the state object of the `NewsFeed` component.
 
-- Incrementally flesh out the data in `this.state.articles`. Try to create new components (e.g. an `Article` component) as you see fit. 
+- Incrementally flesh out the data in `this.state.articles`. For example, display the title first. Then add the description. Then add the author, etc. Try to create new components (e.g. an `Article` component). 
 
 - Bonus: implement the following features in your app
   - allow users to upvote / downvote articles
