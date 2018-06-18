@@ -12,6 +12,7 @@ REACT_APP_NEWSAPI_API_KEY=REPLACE_WITH_YOUR_API_KEY
 ```
   - Note: Because this file contains secrets, it is listed in `.gitignore` and will not be committed in `git`
 
+- `npm install`
 - `npm start`
 
 ### Prerequisite knowledge
